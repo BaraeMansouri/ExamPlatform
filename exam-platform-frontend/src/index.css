@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply border border-white/40 bg-white/70 backdrop-blur-2xl shadow-[0_25px_80px_rgba(15,23,42,0.08)];
+  }
+
+  .floating-panel {
+    transform-style: preserve-3d;
+    animation: floatPanel 7s ease-in-out infinite;
+  }
+
+  .tilt-card {
+    transform: perspective(1600px) rotateX(8deg) rotateY(-10deg);
+    box-shadow: 0 24px 70px rgba(8, 15, 31, 0.28);
+  }
+
+  .aurora-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  }
+}
+
+@keyframes floatPanel {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes app-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
